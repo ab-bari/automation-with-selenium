@@ -1,0 +1,24 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Regression" verbose="1" >
+    <test name="TC#1: Validate Hello World">
+        <classes>
+            <class name="BaseTest">
+                <methods>
+                    <include name="validateHelloWorld"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="TC#2: Validate Navigation to Swag Labs Site">
+        <classes>
+            <class name="BaseTest">
+                <methods>
+                    <include name="validateNavigationToSwagLab"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>
