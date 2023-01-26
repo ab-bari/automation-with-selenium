@@ -8,36 +8,39 @@ import org.testng.Assert;
 
 public class BasePage {
 
-
     public static int defaultTimeOut = 5;
 
-    public void setValueIntoTextField(By locator, String username){
+    public void setValueIntoTextField(By locator, String username) {
         WebElement element = getElement(locator);
         element.clear();
         element.sendKeys(username);
     }
-    public void click(By locator){
+
+    public void click(By locator) {
         getElement(locator).click();
     }
 
-    public void testStepFailed(String failMessage){
+    public void testStepFailed(String failMessage) {
         System.out.println(failMessage);
         Assert.fail(failMessage);
     }
-    public void testStepPassed(String passMessage){
+
+    public void testStepPassed(String passMessage) {
         System.out.println(passMessage);
     }
-    public void testStepSkip(String skipMessage){
+
+    public void testStepSkip(String skipMessage) {
         System.out.println(skipMessage);
     }
+
     public String getMethodName() {
         StackTraceElement[] stackTrace = new Throwable().getStackTrace();
         return stackTrace[1].getMethodName();
     }
 
-    protected boolean isElementPresent(By locator){
+    protected boolean isElementPresent(By locator) {
         try {
-            new Browser().getWait(defaultTimeOut).until(ExpectedConditions.presenceOfElementLocated(locator));
+            Browser.getWait(defaultTimeOut).until(ExpectedConditions.presenceOfElementLocated(locator));
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -45,20 +48,21 @@ public class BasePage {
         }
     }
 
-    protected boolean isElementVisible(By locator){
+    protected boolean isElementVisible(By locator) {
         try {
-            new Browser().getWait(defaultTimeOut).until(ExpectedConditions.visibilityOfElementLocated(locator));
+            Browser.getWait(defaultTimeOut).until(ExpectedConditions.visibilityOfElementLocated(locator));
             return true;
         } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
     }
-    protected WebElement getElement(By locator){
-        return new Browser().getWait(defaultTimeOut).until(ExpectedConditions.presenceOfElementLocated(locator));
+
+    protected WebElement getElement(By locator) {
+        return Browser.getWait(defaultTimeOut).until(ExpectedConditions.presenceOfElementLocated(locator));
     }
-    protected String getText(By locator)
-    {
+
+    protected String getText(By locator) {
         return getElement(locator).getText();
     }
 

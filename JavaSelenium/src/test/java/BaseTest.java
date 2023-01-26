@@ -8,7 +8,6 @@ import org.testng.annotations.Test;
 public class BaseTest {
 
     Browser browser = new Browser();
-    String swagLabURL = "https://www.saucedemo.com";
 
 
     @BeforeSuite(alwaysRun = true)
@@ -20,16 +19,10 @@ public class BaseTest {
     public void tearDown(){
         browser.closeBrowser();
     }
-    @Test
-    public void validateHelloWorld(){
-        String testString = "Hello World!";
-        Assert.assertEquals(testString, "Hello World", "Test string did not match.");
-        System.out.println("Test Hello World passed successfully.");
-    }
 
     @Test
-    public void validateNavigationToSwagLab(){
-        browser.goToURL(swagLabURL);
-        browser.sleep(2000);
+    public void validateWaitForFewSeconds(){
+        System.out.println("Waiting for 5 seconds");
+        browser.sleep(5);
     }
 }

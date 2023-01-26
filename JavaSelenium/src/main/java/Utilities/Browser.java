@@ -24,11 +24,11 @@ public class Browser {
         driver.quit();
     }
 
-    public WebDriverWait getWait(int timeOut) {
+    public static WebDriverWait getWait(int timeOut) {
         return new WebDriverWait(driver, Duration.ofSeconds(timeOut));
     }
 
-    public WebDriverWait getWait() {
+    public static WebDriverWait getWait() {
         return getWait(10);
     }
 
