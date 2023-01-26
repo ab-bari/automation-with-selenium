@@ -3,9 +3,12 @@ package Utilities;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class Browser {
-    public static WebDriver driver;
+    static WebDriver driver;
 
     public void openChromeBrowser(){
         WebDriverManager.chromedriver().setup();
@@ -21,9 +24,22 @@ public class Browser {
         driver.quit();
     }
 
+    public WebDriverWait getWait(int timeOut) {
+        return new WebDriverWait(driver, Duration.ofSeconds(timeOut));
+    }
+
+    public WebDriverWait getWait() {
+        return getWait(10);
+    }
+
+    public static WebDriver getDriver() {
+        return driver;
+    }
+
+
     public void sleep(int timeOut){
         try {
-            Thread.sleep(timeOut);
+            Thread.sleep(Duration.ofSeconds(timeOut));
         } catch (InterruptedException e) {
             System.out.println(e.getMessage());
         }
