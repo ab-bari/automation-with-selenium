@@ -1,5 +1,6 @@
 import Utilities.Browser;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
@@ -20,7 +21,7 @@ public class BaseTest {
         browser.closeBrowser();
     }
 
-    @Test
+    @AfterMethod(alwaysRun = true)
     public void validateWaitForFewSeconds(){
         System.out.println("Waiting for 5 seconds");
         browser.sleep(5);

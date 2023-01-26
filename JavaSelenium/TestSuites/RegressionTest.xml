@@ -1,21 +1,21 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
 <suite name="Regression" verbose="1" >
-    <test name="TC#1: Validate Hello World">
+    <test name="TC#1: Navigate To Login Page">
         <classes>
-            <class name="BaseTest">
+            <class name="LoginTest">
                 <methods>
-                    <include name="validateHelloWorld"/>
+                    <include name="verifyNavigationToLoginPage"/>
                 </methods>
             </class>
         </classes>
     </test>
 
-    <test name="TC#2: Validate Navigation to Swag Labs Site">
+    <test name="TC#2: Verify Successful Login">
         <classes>
-            <class name="BaseTest">
+            <class name="LoginTest">
                 <methods>
-                    <include name="validateNavigationToSwagLab"/>
+                    <include name="verifySuccessfulLogin"/>
                 </methods>
             </class>
         </classes>

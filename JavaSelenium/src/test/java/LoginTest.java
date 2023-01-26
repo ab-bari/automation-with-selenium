@@ -16,8 +16,6 @@ public class LoginTest extends BaseTest {
         loginPage.setUsername("standard_user");
         loginPage.setPassword("secret_sauce");
         loginPage.clickOnLoginButton();
-
-        System.out.println("Successfully clicked on login button");
     }
 
 }

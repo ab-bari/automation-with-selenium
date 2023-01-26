@@ -18,7 +18,7 @@ public class LoginPage extends BasePage {
 
     public void navigateToLoginPage() {
         try {
-            browser.goToURL(swagLabURL);
+            new Browser().goToURL(swagLabURL);
             testStepPassed("Successfully navigated to SWAG LABS login page");
         } catch (Exception e) {
             e.printStackTrace();
